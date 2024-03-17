@@ -1,6 +1,6 @@
 # JavaScript 
 
-## Introduccion
+## Introduccion a javascript
 
 **notas**
 
