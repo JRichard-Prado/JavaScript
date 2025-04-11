@@ -5,7 +5,7 @@
 
 // 2. Escribe un programa de una sola línea que escriba en la pantalla un texto que diga “Hello World” (document.write).
 
-document.writeln("Hola Mundo!<br>");
+document.writeln("Hola Mundo! con JavaScript<br>");
 // 3. Escribe un programa de una sola línea que escriba en la pantalla el resultado de sumar 3 + 5. 
 // document.writeln("El resultado de 3 + 5 es: " + (3 + 5) + "<br>");
 
@@ -290,3 +290,116 @@ function sumaNumeros() {
 }
 // sumaNumeros();
 
+// 22. Realiza un script que escriba una pirámide del 1 al 30 de la siguiente forma:
+//     1
+//     22
+//     333
+//     4444
+//     55555
+//     666666
+//     …….
+
+function piramide() {
+    for (let index = 1; index <= 30; index++) {
+        for (let j = 1; j <= index; j++) {
+            document.writeln(index);
+        }
+        document.writeln("<br>");
+    }
+}
+// piramide();
+
+// 23. Haz un script que escriba una pirámide inversa de los números del 1 al número que indique el usuario de la siguiente forma : (suponiendo que indica 30).
+//     303030303030303030303030303030303030303030303030303030303030
+//     2929292929292929292929292929292929292929292929292929292929
+//     28282828282828282828282828282828282828282828282828282828
+//     …..
+//     333
+//     22
+//     1 
+
+function piramideInversa() {
+    numero = prompt("Introduce un número: ");
+    for (let index = numero; index >= 1; index--) {
+        for (let j = 1; j <= index; j++) {
+            document.writeln(index);
+        }
+        document.writeln("<br>");
+    }     
+}
+// piramideInversa();
+// 24. Crea script para generar pirámide siguiente con los números del 1 al número que indique el usuario (no mayor de 50) :
+//     1
+//     12
+//     123
+//     1234
+//     12345
+//     123456
+//     …… 
+
+function piramideNumeros() {
+    do {
+        numero = prompt("Introduce un número: ");
+        if (numero > 50) {
+            alert("El número no puede ser mayor de 50");
+        } else {
+            for (let index = 1; index <= numero; index++) {
+                for (let j = 1; j <= index; j++) {
+                    document.writeln(j);
+                }
+                document.writeln("<br>");
+            } 
+        }
+    } while (numero > 50);
+}    
+// piramideNumeros();
+
+
+
+
+// 25. Un script que escriba los números del 1 al 500, que indique cuales son múltiplos de 4 y de 9 y que cada 5 líneas muestre una línea horizontal. Por ejemplo :
+// 1
+// 2
+// 3
+// 4 (Múltiplo de 4)
+// 5-
+// ————————————————————-
+// 6
+// 7
+// 8 (Múltiplo de 4)
+// 9 (Múltiplo de 9)
+// 10
+
+function numeroMultiplos() {
+    contador = 0;
+     for (let index = 1; index <= 500; index++) {
+         document.writeln(index + "<br>"); 
+            contador++;  
+         if (contador == 5) {
+            document.writeln("———————————————————— <br>");
+            contador = 0;
+         }
+         if (index % 4 == 0) {
+            document.writeln(`${index} (Múltiplo de 4) <br>`);
+         } 
+         if (index % 9 == 0) {
+            document.writeln(`${index} (Múltiplo de 9) <br>`);
+         } 
+     }
+}
+// numeroMultiplos();
+
+// 26. Realiza un script que pida número de filas y columnas y escriba una tabla. Dentro cada una de las celdas deberá escribirse un número consecutivo en orden descendente. Si, por ejemplo, la tabla es de 7×5 los números irán del 35 al 1.
+function tabla() {
+    filas = prompt("Introduce el número de filas: ");
+    columnas = prompt("Introduce el número de columnas: ");
+    numero = filas * columnas;
+    for (let index = 1; index <= filas; index++) {
+        for (let j = 1; j <= columnas; j++) {
+            document.writeln(numero + " ");
+            numero--;
+        }
+        document.writeln("<br>");
+    }    
+}
+tabla();
