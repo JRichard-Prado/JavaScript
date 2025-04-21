@@ -402,4 +402,47 @@ function tabla() {
         document.writeln("<br>");
     }    
 }
-tabla();
+// tabla();
+
+// 27. Realiza un script que pida un texto y lo muestre en mayúsculas.
+
+function textoMayusculas() {
+    texto = prompt("Introduce un texto: ");
+    document.writeln(`El texto en mayúsculas es: ${texto.toUpperCase()} <br>`);
+}
+// textoMayusculas();
+
+// 28. Realiza un script que pida una cadena de texto y la muestre poniendo el signo – entre cada carácter sin usar el método replace. Por ejemplo, si tecleo “hola qué tal”, deberá salir “h-o-l-a- -q-u-é- -t-a-l”.
+
+function textoGuiones() {
+    texto = prompt("Introduce un texto: ");
+    resultado = "";
+    for (let index = 0; index < texto.length; index++) {
+        resultado += texto.charAt(index) + "-";
+        // charAt(index) devuelve el carácter en la posición index de la cadena texto
+    }
+    document.writeln(`El texto con guiones es: ${resultado.substring(0, resultado.length - 1)} <br>`);
+}
+// textoGuiones();
+// 29. Pedimos una cadena de texto que sabemos que puede contener paréntesis. Realiza un script que extraiga la cadena que se encuentra entre los paréntesis. Ejemplo: Si escribimos el texto “Hola (que) tal” se mostrará “que”. Si no existe el signo “(“ mostrará una cadena vacía y si existe el signo “(“pero no el signo “)” mostrará desde el primer paréntesis hasta el final. 
+function extraerTextoParentesis() {
+    texto = prompt("Introduce un texto: ");
+    inicio = texto.indexOf("(");
+    fin = texto.indexOf(")");
+    // indexOf busca el primer paréntesis en la cadena texto y devuelve su posición
+    // si no encuentra el paréntesis devuelve -1
+    if (inicio == -1 || fin == -1) {
+       if (inicio == -1) {
+             document.writeln(`El texto entre paréntesis es: "" <br>`);
+        
+       } else if (fin== -1) {
+            document.writeln(`El texto entre paréntesis es: ${texto.substring(inicio+1)} <br>`);
+            // substring(inicio) devuelve la cadena desde la posición inicio hasta el final de la cadena texto
+       } 
+    } else {
+        document.writeln(`El texto entre paréntesis es: ${texto.substring(inicio + 1, fin)} <br>`);
+    }
+
+}
+
+extraerTextoParentesis();
