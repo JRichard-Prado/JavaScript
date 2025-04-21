@@ -67,8 +67,8 @@ function divisiblePorDos() {
 function contarLetraA() {
     contador = 0;
     frase = prompt("Introduce una frase: ");
-   for (let index = 0; index < frase.length; index++) {
-        if (frase.charAt(index) == "a" || frase.charAt(index) == "A") {
+   for (let i = 0; i < frase.length; i++) {
+        if (frase.charAt(i) == "a" || frase.charAt(i) == "A") {
             contador++;
         };
     
@@ -82,9 +82,9 @@ function contarLetraA() {
 function contarVocales() {
     frase = prompt("Introduce una frase: ");
     vocales = "aeiouAEIOU";
-    for (let index = 0; index < frase.length; index++) {
-        if (vocales.includes(frase.charAt(index))) {
-            document.writeln(`La letra ${frase.charAt(index)} es una vocal <br>`);
+    for (let i = 0; i < frase.length; i++) {
+        if (vocales.includes(frase.charAt(i))) {
+            document.writeln(`La letra ${frase.charAt(i)} es una vocal <br>`);
         }            
     }
 }
@@ -95,8 +95,8 @@ function letrasConVocales() {
     frase = prompt("Introduce una frase: ");
     contador = 0;
     vocales = "aeiouAEIOU";
-    for (let index = 0; index < frase.length; index++) {
-        if (vocales.includes(frase.charAt(index))) {
+    for (let i = 0; i < frase.length; i++) {
+        if (vocales.includes(frase.charAt(i))) {
             contador++;
         }            
     }
@@ -112,16 +112,16 @@ function contarVocalesFrase() {
     contadorI = 0;
     contadorO = 0;
     contadorU = 0;
-    for (let index = 0; index < frase.length; index++) {
-        if (frase.charAt(index) == "a" || frase.charAt(index) == "A") {
+    for (let i = 0; i < frase.length; i++) {
+        if (frase.charAt(i) == "a" || frase.charAt(i) == "A") {
             contadorA++;
-        } else if (frase.charAt(index) == "e" || frase.charAt(index) == "E") {
+        } else if (frase.charAt(i) == "e" || frase.charAt(i) == "E") {
             contadorE++;
-        } else if (frase.charAt(index) == "i" || frase.charAt(index) == "I") {
+        } else if (frase.charAt(i) == "i" || frase.charAt(i) == "I") {
             contadorI++;
-        } else if (frase.charAt(index) == "o" || frase.charAt(index) == "O") {
+        } else if (frase.charAt(i) == "o" || frase.charAt(i) == "O") {
             contadorO++;
-        } else if (frase.charAt(index) == "u" || frase.charAt(index) == "U") {
+        } else if (frase.charAt(i) == "u" || frase.charAt(i) == "U") {
             contadorU++;
         }
     }
@@ -176,9 +176,9 @@ function divisiblePorCuatro() {
 function divisores() {
     numero = prompt("Introduce un número: ");
     document.writeln(`Los divisores de ${numero} son: `);
-    for (let index = 1; index <= numero; index++) {
-        if (numero % index == 0) {
-            document.writeln(`${index}, `);
+    for (let i = 1; i <= numero; i++) {
+        if (numero % i == 0) {
+            document.writeln(`${i}, `);
         }
     }
 }
@@ -190,9 +190,9 @@ function divisorComun() {
     numero1 = prompt("Introduce el primer número: ");
     numero2 = prompt("Introduce el segundo número: ");
     document.writeln(`Los divisores comunes de ${numero1} y ${numero2} son: `);
-    for (let index = 1; index <= numero1 && index <= numero2; index++) {
-        if (numero1 % index == 0 && numero2 % index == 0) {
-            document.writeln(`${index}, `);
+    for (let i = 1; i <= numero1 && i <= numero2; i++) {
+        if (numero1 % i == 0 && numero2 % i == 0) {
+            document.writeln(`${i}, `);
         }
     }
     
@@ -205,8 +205,8 @@ function primo() {
     contador = 0;
     // recorre el número desde 1 hasta el número introducido
     // y cuenta cuántos divisores tiene
-    for (let index = 1; index <= numero; index++) {
-        if (numero % index == 0) {
+    for (let i = 1; i <= numero; i++) {
+        if (numero % i == 0) {
             contador++;
         }
     }
@@ -300,9 +300,9 @@ function sumaNumeros() {
 //     …….
 
 function piramide() {
-    for (let index = 1; index <= 30; index++) {
-        for (let j = 1; j <= index; j++) {
-            document.writeln(index);
+    for (let i = 1; i <= 30; i++) {
+        for (let j = 1; j <= i; j++) {
+            document.writeln(i);
         }
         document.writeln("<br>");
     }
@@ -320,9 +320,9 @@ function piramide() {
 
 function piramideInversa() {
     numero = prompt("Introduce un número: ");
-    for (let index = numero; index >= 1; index--) {
-        for (let j = 1; j <= index; j++) {
-            document.writeln(index);
+    for (let i = numero; i >= 1; i--) {
+        for (let j = 1; j <= i; j++) {
+            document.writeln(i);
         }
         document.writeln("<br>");
     }     
@@ -343,8 +343,8 @@ function piramideNumeros() {
         if (numero > 50) {
             alert("El número no puede ser mayor de 50");
         } else {
-            for (let index = 1; index <= numero; index++) {
-                for (let j = 1; j <= index; j++) {
+            for (let i = 1; i <= numero; i++) {
+                for (let j = 1; j <= i; j++) {
                     document.writeln(j);
                 }
                 document.writeln("<br>");
@@ -372,18 +372,18 @@ function piramideNumeros() {
 
 function numeroMultiplos() {
     contador = 0;
-     for (let index = 1; index <= 500; index++) {
-         document.writeln(index + "<br>"); 
+     for (let i = 1; i <= 500; i++) {
+         document.writeln(i + "<br>"); 
             contador++;  
          if (contador == 5) {
             document.writeln("———————————————————— <br>");
             contador = 0;
          }
-         if (index % 4 == 0) {
-            document.writeln(`${index} (Múltiplo de 4) <br>`);
+         if (i % 4 == 0) {
+            document.writeln(`${i} (Múltiplo de 4) <br>`);
          } 
-         if (index % 9 == 0) {
-            document.writeln(`${index} (Múltiplo de 9) <br>`);
+         if (i % 9 == 0) {
+            document.writeln(`${i} (Múltiplo de 9) <br>`);
          } 
      }
 }
@@ -394,7 +394,7 @@ function tabla() {
     filas = prompt("Introduce el número de filas: ");
     columnas = prompt("Introduce el número de columnas: ");
     numero = filas * columnas;
-    for (let index = 1; index <= filas; index++) {
+    for (let i = 1; i <= filas; i++) {
         for (let j = 1; j <= columnas; j++) {
             document.writeln(numero + " ");
             numero--;
@@ -417,9 +417,9 @@ function textoMayusculas() {
 function textoGuiones() {
     texto = prompt("Introduce un texto: ");
     resultado = "";
-    for (let index = 0; index < texto.length; index++) {
-        resultado += texto.charAt(index) + "-";
-        // charAt(index) devuelve el carácter en la posición index de la cadena texto
+    for (let i = 0; i < texto.length; i++) {
+        resultado += texto.charAt(i) + "-";
+        // charAt(i) devuelve el carácter en la posición i de la cadena texto
     }
     document.writeln(`El texto con guiones es: ${resultado.substring(0, resultado.length - 1)} <br>`);
 }
@@ -427,9 +427,9 @@ function textoGuiones() {
 // 29. Pedimos una cadena de texto que sabemos que puede contener paréntesis. Realiza un script que extraiga la cadena que se encuentra entre los paréntesis. Ejemplo: Si escribimos el texto “Hola (que) tal” se mostrará “que”. Si no existe el signo “(“ mostrará una cadena vacía y si existe el signo “(“pero no el signo “)” mostrará desde el primer paréntesis hasta el final. 
 function extraerTextoParentesis() {
     texto = prompt("Introduce un texto: ");
-    inicio = texto.indexOf("(");
-    fin = texto.indexOf(")");
-    // indexOf busca el primer paréntesis en la cadena texto y devuelve su posición
+    inicio = texto.iOf("(");
+    fin = texto.iOf(")");
+    // iOf busca el primer paréntesis en la cadena texto y devuelve su posición
     // si no encuentra el paréntesis devuelve -1
     if (inicio == -1 || fin == -1) {
        if (inicio == -1) {
@@ -445,4 +445,124 @@ function extraerTextoParentesis() {
 
 }
 
-extraerTextoParentesis();
+// extraerTextoParentesis();
+// 30. Realiza un script que pida una cadena de texto y la devuelva al revés. Es decir, si tecleo “hola que tal” deberá mostrar “lat euq aloh”.
+function textoAlReves() {
+    texto = prompt("Introduce un texto: ");
+    textoInvertido = "";
+    for (let i = texto.length - 1; i >= 0; i--) {
+        textoInvertido += texto.charAt(i);
+    }
+    document.writeln(`El texto al revés es: ${textoInvertido} <br>`);
+}
+
+// textoAlReves();
+// 31. Realiza un script que pida un texto e indique si es un palíndromo. Ejemplo de palíndromo: “Dabale arroz a la zorra el abad”.
+
+// Un palíndromo es una palabra o enunciado que es escrito de la misma forma de adelante y al-revés, ignorando la puntuación,  las mayúsculas, y el espaciado. por ejemplo; Ana, Anna, Otto
+   
+    
+function palindromo() {
+    text = prompt("Introduce un frase palindromo: ");
+    palindromoLower = "";
+    textoInvertido = "";
+    for (let index = 0; index < text.length; index++) {
+        // Ignoramos los espacios y las mayúsculas
+        if (text.charAt(index) != " ") {
+            palindromoLower += text.charAt(index).toLowerCase();
+        }
+    }
+    for (let i = palindromoLower.length - 1; i >= 0; i--) {
+        textoInvertido += palindromoLower.charAt(i);
+    }
+    document.writeln(`El texto al revés es: ${textoInvertido} <br>`);
+    if (palindromoLower == textoInvertido) {
+        document.writeln(`El texto ${text} es un palíndromo <br>`);
+        document.writeln(`El texto ${textoInvertido} es un palíndromo <br>`);
+        document.writeln(`El texto ${palindromoLower} es un palíndromo <br>`);
+    } else {
+        document.writeln(`El texto ${textoInvertido} no es un palíndromo <br>`);
+        document.writeln(`El texto ${palindromoLower} no es un palíndromo <br>`);
+    }
+}
+// palindromo();
+
+// 32. Realiza un script que muestre la posición de la primera vocal de un texto introducido por teclado. 
+
+function primeraVocal() {
+    texto = prompt("Introduce un texto: ").toLowerCase();
+    vocales = "aeiou";
+    for (let i = 0; i < texto.length; i++) {
+        if ('a'== texto.charAt(i)) {
+            document.writeln(`La primera vocal es: ${texto.charAt(i)} en la posición ${i} <br>`);
+            i= texto.length; // salimos del bucle
+        }else if ('e'== texto.charAt(i)) {
+            document.writeln(`La primera vocal es: ${texto.charAt(i)} en la posición ${i} <br>`);
+            i= texto.length; // salimos del bucle
+        }else if ('i'== texto.charAt(i)) {
+            document.writeln(`La primera vocal es: ${texto.charAt(i)} en la posición ${i} <br>`);
+            i= texto.length; // salimos del bucle
+        } else if ('o'== texto.charAt(i)) {
+            document.writeln(`La primera vocal es: ${texto.charAt(i)} en la posición ${i} <br>`);
+            i= texto.length; // salimos del bucle
+        }else if ('u'== texto.charAt(i)) {
+            document.writeln(`La primera vocal es: ${texto.charAt(i)} en la posición ${i} <br>`);
+            i= texto.length; // salimos del bucle
+        }
+    }
+}
+// primeraVocal();
+// 33. Realiza el mismo ejercicio anterior pero utilizando el método includes.
+function primeraVocalIncludes() {
+    texto = prompt("Introduce un texto: ").toLowerCase();
+    vocales = "aeiou";
+    for (let i = 0; i < texto.length; i++) {
+        if (vocales.includes(texto.charAt(i))) {
+            document.writeln(`La primera vocal es: ${texto.charAt(i)} en la posición ${i} <br>`);
+            break; // salimos del bucle
+        }
+    }
+}
+// primeraVocalIncludes();
+
+// 34. Realiza un script que muestre la serie de fibonacci hasta un número entre 1 y 100 pedido por teclado
+//     0, 1, 1, 2, 3, 5, 8, 13, 21, 34, 55, 89... el siguiente número es una suma de los dos anteriores
+function fibonacci() {
+    numero = prompt("Introduce un número entre 1 y 100: ");
+    if (numero < 1 || numero > 100) {
+        alert("El número no es válido");
+    } else {
+        a = 0;
+        b = 1;
+        document.writeln(`La serie de Fibonacci hasta ${numero} es: `);
+        document.writeln(`${a}, ${b}, `);
+        for (let i = 2; i < numero; i++) {
+            c = a + b;
+            document.writeln(`${c}, `);
+            a = b;
+            b = c;
+        }
+    }
+}
+// fibonacci();
+// 35. Realiza un juego de Piedra Papel Tijera contra el Pc.
+function piedraPapelTijera() {
+    usuario = prompt("Elige piedra, papel o tijera: ").toLocaleUpperCase();
+    opciones = ["PIEDRA", "PAPEL", "TIJERA"];
+    pc = Math.floor(Math.random() * 3)
+    document.writeln(`El jugador elige: ${usuario} <br>`);
+    document.writeln(`El PC elige: ${opciones[pc]} <br>`);
+    if (usuario == opciones[pc]) {
+        document.writeln("Empate <br>");
+    } else if (usuario == "PIEDRA" && opciones[pc] == "TIJERA") {
+        document.writeln("El jugador gana <br>");
+    } else if (usuario == "PAPEL" && opciones[pc] == "PIEDRA") {
+        document.writeln("El jugador gana <br>");
+    } else if (usuario == "TIJERA" && opciones[pc] == "PAPEL") {
+        document.writeln("El jugador gana <br>");
+    } else {
+        document.writeln("El PC gana <br>");
+    }
+}
+// piedraPapelTijera();
+// 36. Crea una función que devuelva el número PI con dos decimales. Utiliza la variable PI que ya existe en javascript
