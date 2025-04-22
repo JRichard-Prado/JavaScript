@@ -566,3 +566,175 @@ function piedraPapelTijera() {
 }
 // piedraPapelTijera();
 // 36. Crea una función que devuelva el número PI con dos decimales. Utiliza la variable PI que ya existe en javascript
+
+function  pi() {
+    return Math.PI.toFixed(2);
+    // toFixed(2) devuelve el número con dos decimales
+}
+// document.writeln(`El número PI es: ${pi()} <br>`);
+
+// 37. Crea una función que reciba un parámetro, un dni, y devuelva la letra del mismo. Si el dni pasado tiene algún error devolverá “”.
+// Un DNI es un identificador que consta de ocho cifras numéricas y una letra que actúa como dígito de control.Se toma la parte del numero del documento y se divide entre 23 y se obtiene el resto. Ejemplo 88723267P
+// Resto Letra
+// 0 	T
+// 1 	R
+// 2 	W
+// 3 	A
+// 4 	G
+// 5 	M
+// 6 	Y
+// 7 	F
+// 8 	P
+// 9 	D
+// 10 	X
+// 11 	B
+// 12 	N
+// 13 	J
+// 14 	Z
+// 15 	S
+// 16 	Q
+// 17 	V
+// 18 	H
+// 19 	L
+// 20 	C
+// 21 	K
+// 22 	E
+
+function letraDNI(dni) {
+    if (dni.length != 9) {
+        return "";
+    } else {
+        dni = parseInt(dni.substring(0, 8));
+        letras = "TRWAGMYFPDXBNJZSQVHLCKE";
+        resto = dni % 23;
+        return letras.charAt(resto);
+    }
+}
+// dni = prompt("Introduce un DNI: ");
+// document.writeln(`La letra del DNI ${dni} es: ${letraDNI(dni)} <br>`);
+
+// 38. Crea una función que reciba 2 parámetros, precio e iva, y devuelva el precio con iva incluido. Si no recibe el iva, aplicará el 21 por ciento por defecto.
+
+// El tipo general de IVA es el 21%. Los tipos reducidos vigentes son el 10% y el 4% (también se aplican el 5% y el 0% a determinadas operaciones).
+
+function precioConIva(precio, iva) {
+    if (iva == "" || iva == null || iva == undefined || isNaN(iva)) {
+        iva = 21;
+        return precio + (precio * iva / 100);
+    } else  
+        return precio + (precio * iva / 100);
+    
+    
+}
+//  precio = parseInt(prompt("Introduce un precio: "));
+//  iva = parseInt(prompt("Introduce un IVA: "));
+
+// document.writeln(`El precio con IVA es: ${precioConIva(precio, iva)} <br>`);
+
+// 39. Crea una función que reciba un texto y lo devuelva al revés
+function textoAlReves(texto) {
+    textoInvertido = "";
+    for (let i = texto.length - 1; i >= 0; i--) {
+        textoInvertido += texto.charAt(i);
+    }
+    return textoInvertido;
+}
+// texto = prompt("Introduce un texto: ");
+// document.writeln(`${texto} ==> al revés es: ${textoAlReves(texto)} <br>`);
+
+// 40. Crea una función que genere número entero aleatorio entre min y max, que serán pasados como parámetros. Por defecto min = 1 y max = 100 
+function numeroAleatorio(min, max) {
+    return Math.floor(Math.random() * (max - min + 1)) + min;
+    // floor devuelve el número entero menor o igual al número
+}
+// min = parseInt(prompt("Introduce un número mínimo: "));
+// max = parseInt(prompt("Introduce un número máximo: "));
+// document.writeln(`El número aleatorio entre ${min} y ${max} es: ${numeroAleatorio(min, max)} <br>`);
+
+// 41. Crea una función que genere 100 números aleatorios entre 1 y 1000 que no se repitan y luego muestralos por pantalla 
+
+function numerosAleatorios() {
+    numeros =[];
+    while (numeros.length < 5) {
+        numAleatorio = Math.floor(Math.random() * 5) + 1;
+        // Si el número ya existe en el array, generamos otro número aleatorio
+        if (!numeros.includes(numAleatorio)) {
+            numeros.push(numAleatorio);
+            document.writeln(`${numAleatorio} <br>`);
+        }
+    }
+}
+// numerosAleatorios();
+// 42. Realiza un script que escriba en el documento la fecha y hora actual. La salida deberá tener el siguiente formato:  Hoy es martes, 28 de Febrero de 2018 y son las 14:32 horas. 
+
+function fechaHoraActual() {
+    fecha = new Date();
+    dias = ["domingo", "lunes", "martes", "miércoles", "jueves", "viernes", "sábado"];
+    meses = ["enero", "febrero", "marzo", "abril", "mayo", "junio", "julio", "agosto", "septiembre", "octubre", "noviembre", "diciembre"];
+    document.writeln(`Hoy es ${dias[fecha.getDay()]}, ${fecha.getDate()} de ${meses[fecha.getMonth()]} de ${fecha.getFullYear()} y son las ${fecha.getHours()}:${fecha.getMinutes()} horas. <br>`);
+   
+   // getDay() devuelve el día de la semana (0-6) 0 es domingo, 1 es lunes, 2 es martes, 3 es miércoles, 4 es jueves, 5 es viernes, 6 es sábado
+}
+// fechaHoraActual();
+
+// 43. Realiza un script que pida un nombre y dos apellidos e indique el tiempo que se tardó en introducir los datos. La salida sería algo así como: En introducir Luís Perez Alonso ha tardado 25 segundos. 
+
+function tiempoIntroducirDatos() {
+    tiempoInicio = new Date().getSeconds();
+    nombre = prompt("Introduce tu nombre: ");
+    apellidos = prompt("Introduce tus apellidos: ");
+    tiempoFin = new Date().getSeconds();
+    document.writeln(`En introducir ${nombre} ${apellidos} ha tardado ${tiempoFin - tiempoInicio} segundos. <br>`); 
+}
+// tiempoIntroducirDatos();
+
+// 44. Realiza un script pida un mes y año e imprima su calendario. No hace falta esmerarse en la presentación del calendario, el calendario simplificado puede ser del tipo:  OCTUBRE – 2014  1 (miercoles), 2 (jueves), ….. , 31 (viernes). 
+
+function imprimirCalendario() {
+    mes = prompt("Introduce un mes: ");
+    anio = prompt("Introduce un año: ");
+    fecha = new Date(anio, mes - 1, 1);
+    dias = ["domingo", "lunes", "martes", "miércoles", "jueves", "viernes", "sábado"];
+    document.writeln(`${mes} - ${anio} <br> <br>`);
+    document.writeln("----------------------------------------------------------------------------- <br>");
+    document.writeln("Domingo | Lunes | Martes | Miércoles | Jueves | Viernes | Sábado <br>");
+    document.writeln("----------------------------------------------------------------------------- <br>");
+    
+    while (fecha.getMonth() == mes - 1) {
+        // getMonth() devuelve el mes (0-11) 0 es enero
+        document.writeln(`${fecha.getDate()}   (${dias[fecha.getDay()]}) | `);
+        if (fecha.getDay() == 6) {
+            // getDay() devuelve el día de la semana (0-6) 0 es domingo
+            document.writeln("<br>");
+        }
+        fecha.setDate(fecha.getDate() + 1);
+    }
+} 
+// imprimirCalendario();
+// 45. Realiza un script que pida una fecha y muestre tres fechas que sean la fecha introducida a 30, 60 y 90 días. 
+function fechasFuturas() {
+    fecha = prompt("Introduce una fecha (dd/mm/aaaa): ");
+    fecha = fecha.split("/");
+    dia = parseInt(fecha[0]);
+    mes = parseInt(fecha[1]);
+    anio = parseInt(fecha[2]);
+    fecha = new Date(anio, mes - 1, dia);
+    document.writeln(`La fecha introducida es: ${dia}/${mes}/${anio} <br>`);
+    document.writeln(`La fecha dentro de 30 días es: ${fecha.getDate() + 30}/${mes}/${anio} <br>`);
+    document.writeln(`La fecha dentro de 60 días es: ${fecha.getDate() + 60}/${mes}/${anio} <br>`);
+    document.writeln(`La fecha dentro de 90 días es: ${fecha.getDate() + 90}/${mes}/${anio} <br>`);
+}
+
+// fechasFuturas();
+
+// 46. Realiza un script que muestre un reloj en pantalla con fecha y hora y que se actualice cada segundo. Función setTimeout().
+
+function reloj() {
+    fecha = new Date();
+    dias = ["domingo", "lunes", "martes", "miércoles", "jueves", "viernes", "sábado"];
+    meses = ["enero", "febrero", "marzo", "abril", "mayo", "junio", "julio", "agosto", "septiembre", "octubre", "noviembre", "diciembre"];
+    document.writeln(`Hoy es ${dias[fecha.getDay()]}, ${fecha.getDate()} de ${meses[fecha.getMonth()]} de ${fecha.getFullYear()} y son las ${fecha.getHours()}:${fecha.getMinutes()}:${fecha.getSeconds()} horas. <br>`);
+    setTimeout(reloj, 1000);
+}
+
+reloj();
