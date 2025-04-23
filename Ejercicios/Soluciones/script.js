@@ -713,16 +713,20 @@ function imprimirCalendario() {
 // imprimirCalendario();
 // 45. Realiza un script que pida una fecha y muestre tres fechas que sean la fecha introducida a 30, 60 y 90 días. 
 function fechasFuturas() {
-    fecha = prompt("Introduce una fecha (dd/mm/aaaa): ");
-    fecha = fecha.split("/");
+    fechaUsr = prompt("Introduce una fecha (dd/mm/aaaa): ");
+    fecha = fechaUsr.split("/");
+    //  split("/") divide la cadena en un array de cadenas
     dia = parseInt(fecha[0]);
     mes = parseInt(fecha[1]);
     anio = parseInt(fecha[2]);
-    fecha = new Date(anio, mes - 1, dia);
-    document.writeln(`La fecha introducida es: ${dia}/${mes}/${anio} <br>`);
-    document.writeln(`La fecha dentro de 30 días es: ${fecha.getDate() + 30}/${mes}/${anio} <br>`);
-    document.writeln(`La fecha dentro de 60 días es: ${fecha.getDate() + 60}/${mes}/${anio} <br>`);
-    document.writeln(`La fecha dentro de 90 días es: ${fecha.getDate() + 90}/${mes}/${anio} <br>`);
+    fecha = new Date(anio, mes, dia);
+    document.writeln(`La fecha introducida es: ${fecha.getDate()}/${fecha.getMonth()}/${fecha.getFullYear()} <br>`);
+    fecha.setDate(fecha.getDate() + 30);
+    document.writeln(`La fecha dentro de 30 días es: ${fecha.getDate()} <br>`);
+    fecha.setDate(fecha.getDate() + 60);
+    document.writeln(`La fecha dentro de 60 días es: ${fecha.getDate()} <br>`);
+    fecha.setDate(fecha.getDate() + 90);
+    document.writeln(`La fecha dentro de 90 días es: ${fecha.getDate()} <br>`);
 }
 
 // fechasFuturas();
@@ -731,10 +735,7 @@ function fechasFuturas() {
 
 function reloj() {
     fecha = new Date();
-    dias = ["domingo", "lunes", "martes", "miércoles", "jueves", "viernes", "sábado"];
-    meses = ["enero", "febrero", "marzo", "abril", "mayo", "junio", "julio", "agosto", "septiembre", "octubre", "noviembre", "diciembre"];
-    document.writeln(`Hoy es ${dias[fecha.getDay()]}, ${fecha.getDate()} de ${meses[fecha.getMonth()]} de ${fecha.getFullYear()} y son las ${fecha.getHours()}:${fecha.getMinutes()}:${fecha.getSeconds()} horas. <br>`);
-    setTimeout(reloj, 1000);
+    document.getElementById("reloj").innerHTML= `Hoy es ${fecha.getDate()} / ${fecha.getMonth()} / ${fecha.getFullYear()} y son las ${fecha.toLocaleTimeString()} hrs. <br>`;
+    
 }
-
-reloj();
+setInterval(reloj ,1000);
