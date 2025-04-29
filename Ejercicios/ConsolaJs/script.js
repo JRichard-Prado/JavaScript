@@ -89,10 +89,65 @@ let primos = 1;
     // 17.-De tipo info donde calcules la letra del DNI dado un numero de 8 digitos
 let dni = 12345678;
 let letras = "TRWAGMYFPDXBNJZSQVHLCKE";
-let letraDNI = letras.charAt(dni % 23); // Obtener la letra del DNI usando charAt
+let letraDNI = letras.charAt(dni % 23); 
+// charAt() devuelve el caracter en la posicion indicada por el modulo 23 de la variable dni.
 console.info(`Sol 17.- La letra del DNI ${dni} es: ${letraDNI}`);
 
+// 18.- De tipo info donde calcules la letra del NIE dado un numero de 8 digitos
+// Los NIE de extranjeros residentes en España tienen una letra (X, Y, Z), 7 números y dígito de copia.
+// Para el cálculo del dígito de copia se sustituye:
+//     X → 0
+//     Y → 1
+//     Z → 2
+// y se aplica el mismo algoritmo que para el NIF.
+// Ejemplo NIE: X0134567A
 
+
+let nie = "X0134567";
+
+let letraNIE = nie.charAt(0); // La primera letra del NIE
+let numeroNIE = nie.substring(1, 8); // Los 7 dígitos del NIE
+switch (letraNIE.toUpperCase()) { // Convertir a mayúscula para evitar problemas de comparación
+    case "X":
+        letraNIE = 0;
+        break;
+    case "Y":
+        letraNIE = 1;
+        break;
+    case "Z":
+        letraNIE = 2;
+        break;
+    default:
+        console.error("Error: La letra del NIE no es válida");
+}
+let nieNumerico = letraNIE + numeroNIE; // Convertir a número
+console.info(`Sol 18.- La letra del NIE ${nie} es: ${letras.charAt(nieNumerico%23)}`);
+// 19.- De tipo error para calcular un numero dado a su equivalente en binario sin utilizar funciones propias  de los lenguajes, es decir, dividiendo por 2 hasta hallarlo.
+let numeroDecimal = 5; 
+let binario = ""; 
+// while (numeroDecimal > 0) {
+while (numeroDecimal > 0) {
+    let residuo = numeroDecimal % 2; 
+    binario = residuo + binario; // Concatenar el residuo al principio del resultado
+    numeroDecimal = Math.floor(numeroDecimal / 2); 
+    // floor() redondea hacia abajo el número decimal al entero más cercano.
+}
+console.error(`Sol 19.- El número decimal 42 en binario es: ${binario}`);
+
+//De tipo warn donde calcules si un nuemro es numero armstrong, tambien conocido como numero narcisista,o numero de repeticion, es un numero que es igual a la suma de sus digitos elevados a la potencia del numero de  digitos. Por ejemplo, 153 es un numero de armstrong por que 1^3 +5^3+3^3=1+125+27=153. 
+// 370,371 y 407 son otros ejemplos de numeros armstrong.
+let numeroArmstrong = 153; 
+let copia = numeroArmstrong; // Guardar el número original para la comparación final
+let suma = 0;
+
+while (copia > 0) {
+    let digito = copia % 10; // Obtener el último dígito
+    suma += Math.pow(digito, 3); // Elevar el dígito a la potencia de 3 y sumarlo
+    copia = Math.floor(copia / 10); // Eliminar el último dígito
+}
+if (suma === numeroArmstrong) {
+    console.warn(`El número ${numeroArmstrong} es un número Armstrong`);
+}
 
    
 
