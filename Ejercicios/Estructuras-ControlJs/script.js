@@ -162,3 +162,54 @@ function mensajeModal() {
     }
 }
 // mensajeModal();
+// 9.- Solicita con un mensaje prompt que pregunte las veces que repites un alert mediante un bucle while
+function mensajeAlert() {
+    let veces = parseInt(prompt("¿Cuántas veces quieres repetir el mensaje?"));
+    let i = 0;
+    while (i < veces) {
+        alert(`Sol 9.- Este es el mensaje nº ${i+1}.`);
+        i++;
+    }
+}
+// mensajeAlert();
+// 10.- Solicita con un mensaje prompt si quieres salir de un do while que muestre un alert si no sale
+function salir() {
+    let salir = false;
+    do {
+        mensajeSalir = prompt("Sol 10.- ¿Quieres salir del programa? (si/no)");
+        if (mensajeSalir == "si") {
+            salir = true;
+        }
+        if (mensajeSalir == "no") {
+            alert("Sol 10.- No sale!");
+            salir = false;
+        }
+    } while (!salir);
+}
+// salir();
+// 11.- Act.- Pide nombre y edad al usuario. Utiliza if o un switch para contestar a que franja de edad pertence: 0-11 niño,12-17 adolecente, 18-29 joven,30-39 mediana edad, 40-64 maduro y mas de 65 tercera edad. muestra en un alert con un mensaje con el nombre , la edad y la franja de edad interpolando variables.
+function edad() {
+    let nombre = prompt("Ingrese su nombre:");
+    let edad = parseInt(prompt("Ingrese su edad:"));
+    let franjaEdad;
+
+    if (edad >= 0 && edad <= 11) {
+        franjaEdad = "niño";
+    } else if (edad >= 12 && edad <= 17) {
+        franjaEdad = "adolescente";
+    } else if (edad >= 18 && edad <= 29) {
+        franjaEdad = "joven";
+    } else if (edad >= 30 && edad <= 39) {
+        franjaEdad = "mediana edad";
+    } else if (edad >= 40 && edad <= 64) {
+        franjaEdad = "maduro";
+    } else if (edad >= 65) {
+        franjaEdad = "tercera edad";
+    } else {
+        franjaEdad = "edad no válida";
+    }
+
+    alert(`Sol 11.- Hola ${nombre}, tienes ${edad} años y perteneces a la franja de edad: ${franjaEdad}.`);
+}
+
+edad();
