@@ -187,7 +187,7 @@ function salir() {
     } while (!salir);
 }
 // salir();
-// 11.- Act.- Pide nombre y edad al usuario. Utiliza if o un switch para contestar a que franja de edad pertence: 0-11 niño,12-17 adolecente, 18-29 joven,30-39 mediana edad, 40-64 maduro y mas de 65 tercera edad. muestra en un alert con un mensaje con el nombre , la edad y la franja de edad interpolando variables.
+// 11.- Act.- Pide nombre y edad al usuario. Utiliza if o un switch para contestar a que franja de edad pertence: 0-11 niño, 12-17 adolecente, 18-29 joven,30-39 mediana edad, 40-64 maduro y mas de 65 tercera edad. muestra en un alert con un mensaje con el nombre , la edad y la franja de edad interpolando variables.
 function edad() {
     let nombre = prompt("Ingrese su nombre:");
     let edad = parseInt(prompt("Ingrese su edad:"));
@@ -210,6 +210,175 @@ function edad() {
     }
 
     alert(`Sol 11.- Hola ${nombre}, tienes ${edad} años y perteneces a la franja de edad: ${franjaEdad}.`);
+    pregunta11.innerHTML = `Sol 11.- Hola ${nombre}, tienes ${edad} años y perteneces a la franja de edad: ${franjaEdad}.`;
 }
 
-edad();
+// edad();
+// 12.- Act.- Pide un mes del año y responde a que estacion metereologica pertecene y a que signo Zodiacal puede pertenecer tambien. NOTA: cada mes puede pertenecer a dos signos zodiacales y cuatro meses pertecneces a dos estaciones diferentes tambien.
+
+/*  Estaciones del año en España 
+    Primavera: inicia el 20 de marzo al 21 de junio. 
+    Verano: inicia el 21 de junio y finaliza el 23 de septiembre.
+    Otoño: inicia el 23 de septiembre y finaliza el 21 de diciembre.
+    Invierno: inicia el 21 de diciembre y finaliza el 20 de marzo. */
+
+/*  Aries: del 21 de marzo al 19 de abril.
+    Tauro: del 20 de abril al 20 de mayo.
+    Géminis: del 21 de mayo al 20 de junio.
+    Cáncer: del 21 de junio al 22 de julio.
+    Leo: del 23 de julio al 22 de agosto.
+    Virgo: del 23 de agosto al 22 de septiembre.
+    Libra: del 23 de septiembre al 22 de octubre.
+    Escorpio: del 23 de octubre al 21 de noviembre.
+    Sagitario: del 22 de noviembre al 21 de diciembre.
+    Capricornio: del 22 de diciembre al 19 de enero.
+    Acuario: del 20 de enero al 18 de febrero.
+    Piscis: del 19 de febrero al 20 de marzo.
+*/
+function estacionZodiacal() {
+    let mes = parseInt(prompt("Ingrese el mes del año (1-12):"));
+    if (mes >=3 && mes <= 6) {
+            if (mes == 3) {
+            pregunta12.innerHTML = `<pre>   Sol 12.- El mes ${mes} pertenece al invierno y primavera.
+            Signo Zodiacal: Aries y Piscis. </pre>`;
+            }else if (mes == 4) {
+            pregunta12.innerHTML = `<pre>   Sol 12.- El mes ${mes} pertenece a la primavera .
+            Signo Zodiacal: Aries y Tauro </pre>`;
+            }else if (mes == 5) {
+            pregunta12.innerHTML = `<pre>   Sol 12.- El mes ${mes} pertenece a la primavera .
+            Signo Zodiacal: Tauro y Géminis </pre>`;
+            }else if (mes == 6) {
+            pregunta12.innerHTML = `<pre>   Sol 12.- El mes ${mes} pertenece a la primavera y verano.
+            Signo Zodiacal: Géminis y Cancer  </pre>`;  
+            }
+    } else if (mes > 6 && mes <= 9) {
+        if (mes == 7) {
+        pregunta12.innerHTML = `<pre>   Sol 12.- El mes ${mes} pertenece al verano.
+        Signo Zodiacal: Cancer y Leo </pre>`;
+        }else if (mes == 8) {
+        pregunta12.innerHTML = `<pre>   Sol 12.- El mes ${mes} pertenece al verano.
+        Signo Zodiacal: Leo y Virgo </pre>`;
+        }else if (mes == 9) {
+        pregunta12.innerHTML = `<pre>   Sol 12.- El mes ${mes} pertenece al verano y otoño.
+        Signo Zodiacal: Virgo y Libra </pre>`;
+        }
+    }else if (mes > 9 && mes <= 12) {
+        if (mes == 10) {
+        pregunta12.innerHTML = `<pre>   Sol 12.- El mes ${mes} pertenece al otoño.
+            Signo Zodiacal: Libra y Escorpio </pre>`;
+        }else if (mes == 11) { 
+        pregunta12.innerHTML = `<pre>   Sol 12.- El mes ${mes} pertenece al otoño.
+            Signo Zodiacal: Escorpio y Sagitario </pre>`;
+        }else if (mes == 12) {
+        pregunta12.innerHTML = `<pre>   Sol 12.- El mes ${mes} pertenece al otoño y invierno.
+            Signo Zodiacal: Sagitario y Capricornio </pre>`;
+        }
+    } else if (mes > 12 || mes <= 2) {
+        if (mes == 1 || mes == 2) {
+        pregunta12.innerHTML = `Sol 12.- El mes ${mes} pertenece al invierno.`;
+        }
+    }
+}
+// estacionZodiacal();
+// 13.- Act.- Modifica el ejercicio anterior para que muestre exactamente el mes y el sodiaco que corresponda
+// ejemplo: si el usuario ingresa 3, el programa debe mostrar que el mes es marzo y que su signo zodiacal es aries o piscis.
+function zodiaco() {
+    let mes = parseInt(prompt("Ingrese el mes del año (1-12):"));
+    let signoZodiacal;
+    switch (mes) {
+        case 1:
+            mesNombre = "Enero";
+            signoZodiacal = "Capricornio o Acuario";
+            break;
+        case 2:
+            mesNombre = "Febrero";
+            signoZodiacal = "Acuario o Piscis";
+            break;
+        case 3:
+            mesNombre = "Marzo";
+            signoZodiacal = "Piscis o Aries";
+            break;
+        case 4:
+            mesNombre = "Abril";
+            signoZodiacal = "Aries o Tauro";
+            break;
+        case 5:
+            mesNombre = "Mayo";
+            signoZodiacal = "Tauro o Géminis";
+            break;
+        case 6:
+            mesNombre = "Junio";
+            signoZodiacal = "Géminis o Cáncer";
+            break;
+        case 7:
+            mesNombre = "Julio";
+            signoZodiacal = "Cáncer o Leo";
+            break;
+        case 8:
+            mesNombre = "Agosto";
+            signoZodiacal = "Leo o Virgo";
+            break;
+        case 9:
+            mesNombre = "Septiembre";
+            signoZodiacal = "Virgo o Libra";
+            break;
+        case 10:
+            mesNombre = "Octubre";
+            signoZodiacal = "Libra o Escorpio";
+            break;
+        case 11:
+            mesNombre = "Noviembre";
+            signoZodiacal = "Escorpio o Sagitario";
+            break;
+        case 12:
+            mesNombre = "Diciembre";
+            signoZodiacal = "Sagitario o Capricornio";
+            break;
+        default:
+            mesNombre = "Mes no válido";
+            signoZodiacal = "Signo no válido";
+            break;
+    }
+    if (mesNombre !== "Mes no válido") {
+        pregunta13.innerHTML = `Sol 13.- El mes es ${mesNombre} y su signo zodiacal es ${signoZodiacal}.`;
+    } else {
+        pregunta13.innerHTML = `Sol 13.- ${mesNombre} signo zodiacal es ${signoZodiacal}.`;
+        pregunta13.style.color = "red";
+    }
+    
+   
+}
+// zodiaco();
+// 14.- Crea una estructura while que pregunte una letra del abcedario y nos muestre si el vocal o consonante. La pregunta se debe realizar indefinidamente mientras no pulse la 's' o la 'S'. 
+function vocalConsonante() {
+    let letra;
+    let continuar = true;
+    while (continuar) {
+        let letraIngresada = prompt("Ingrese una letra del abecedario ('s' ó 'S' para salir):");
+        letra = letraIngresada.toLocaleLowerCase();
+        if (letra == 's') {
+            continuar = false;
+        } else if ("aeiou".includes(letra)) {
+            alert(`La letra ${letraIngresada} es una vocal.`);
+            } else {
+            alert(`La letra ${letraIngresada} es una consonante.`);
+            }
+            }
+}
+// vocalConsonante();
+// 15.- Muestra por pantalla todos los multiplos de 2 que hay entre 0 y 100 . luego los multiplos de 7.
+function multiplos() {
+    let multiplos2 = "<pre>    Sol 15.- Múltiplos de 2 entre 0 y 100: <br></pre>";
+    let multiplos7 = "<pre>    Múltiplos de 7 entre 0 y 100: <br></pre> ";
+    for (let i = 0; i <= 100; i++) {
+        if (i % 2 == 0) {
+            multiplos2 += `${i}, `;
+        }
+        if (i % 7 == 0) {
+            multiplos7 += `${i}, `;
+        }
+    }
+    pregunta15.innerHTML = `${multiplos2} ${multiplos7}`;
+    pregunta15.style.fontSize = "1rem";
+}
+multiplos();
