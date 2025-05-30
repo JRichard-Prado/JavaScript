@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Examen uf1305 Formulario</title>
+</head>
+<style>
+    body {
+        height: 97vh;
+        display: grid;/*contenedores principales maquetados con grid*/
+        grid-template-columns: 90vw; /*una sola columna */
+        grid-template-rows: 0.5fr 2fr 0.5fr;/*altura de las 3 filas*/
+        justify-content: center;
+    }
+    #nombre-completo, #out {
+        width: 18vw;
+    }
+    header{
+        background-color: #8e3535;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        color: white;
+        border-top-left-radius: 10px;
+        border-start-end-radius: 10px;
+    }
+    form {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-around;
+        width: 95%;
+        height: 80%;
+        background-color: #7a727258;
+        border-radius: 10px;
+        box-shadow:  0 0 10px rgba(0, 0, 0, 0.5);
+    }
+    form>input[type="button"],input[type="reset"] {
+        width: 20%;
+        height: 10%;
+        background-color: #8e3535;
+        color: white;
+        border: none;
+        border-radius: 5px;
+        align-self: center;/*centrar los botones*/
+        box-shadow:  0 0 10px rgba(0, 0, 0, 0.5);
+    }
+
+    main {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        background-color: rgba(95, 57, 104, 0.275);
+    }
+    footer{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        background-color: #8e3535;
+        color: white;
+        border-end-end-radius: 10px;
+        border-end-start-radius: 10px;
+    }
+    ul {
+        width: 95%;
+        background-color: #7a727258;
+        list-style: none;
+        padding: 0;
+        display: flex;
+        justify-content: space-evenly;
+        
+    }
+    ul li {
+        font-size: 0.8rem;
+    }
+    /*Estilos personalizados */
+    span {
+        font-weight: bold;
+    }
+    input[type="text"], input[type="number"], input[type="email"] {
+        height: 1.5rem;
+        border-radius: 5px;
+        border: 1px solid #777272;
+        padding-left: 0.5rem;
+    }
+    fieldset{
+        border-radius: 10px;
+        height: 20%;
+    }
+</style>
+<!-- Maquetacion de la pagina con grid al body   -->
+<body>
+    <header>
+        <h1>EXÁMEN UF1306 DEL CERTIFICADO DE PROFESIONALIDAD IFCD0110</h1>
+    </header>
+
+    <main>
+         <form action="/" method="get">
+            <fieldset id="nombre-de-usuario">
+                <legend>Nombre de Usuario</legend>
+                <label for="nombre">Nombre</label>
+                <input type="text" name="nombre" id="nombre" minlength="3" maxlength="15">
+
+                <label for="apellido1">Apellido 1</label>
+                <input type="text" name="apellido1" id="apellido1" minlength="3" maxlength="15">
+
+                <label for="apellido2">Apellido 2</label>
+                <input type="text" name="apellido2" id="apellido2" minlength="3" maxlength="15">
+
+                <label for="nombre-completo">Nombre Completo</label>
+                <input type="text" name="nombre-completo" id="nombre-completo" disabled>
+
+            </fieldset>
+            <fieldset id="datos-usuario">
+                <legend>Datos de Usuario</legend>
+                <label for="nif-nie">NIF/NIE </label>
+                <input type="number" name="nif-nie" id="nif-nie"  >
+
+                <label for="telefono">Telefono </label>
+                <input type="number" name="telefono" id="telefono">
+
+                <label for="correo-electronico">Email</label>
+                <input type="email" name="correo-electronico" id="correo-electronico">
+
+                <label for="out">Contenido Introducido</label>
+                <input type="text" name="out" id="out" disabled>
+            </fieldset>
+            <input type="reset" value="Borrar todos los campos">
+            <input type="button" value="Enviar Formulario">
+        </form>
+    </main>
+    
+    <footer>
+        <!-- lista centrada con datos del alumno y examen unidad formativa -->
+        <ul>
+            <li>Nombre: <span>Juan Richard</span></li>
+            <li>Apellidos: <span>Prado Montaño</span></li>
+            <li>Correo Electronico: <span>jrichip@hotmail.com</span></li>
+            <li>Unidad Formativa: <span>UF1306 PRUEBAS DE FUNCIONALIDADES Y OPTIMIZACIÓN DE PAGINAS WEB</span></li>
+        </ul>
+    </footer>
+    <!-- importar el javascript al final para asugurar la carga del DOM -->
+    <script src="script.js"></script>
+</body>
+</html>
