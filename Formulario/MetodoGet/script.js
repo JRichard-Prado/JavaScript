@@ -2,7 +2,7 @@ const nombre = document.querySelector('#nombre');
 const apellido1 = document.querySelector('#apellido1');
 const apellido2 = document.querySelector('#apellido2');
 const nomCompleto = document.querySelector('#nombre-completo');
-//
+// campos del segundo fieldset
 const nie = document.querySelector('#nif-nie');
 const telf = document.querySelector('#telefono');
 const email = document.querySelector('#correo-electronico');
@@ -31,7 +31,7 @@ apellido1.addEventListener('mouseout', () => {apellido1.style.boxShadow = ''; })
 apellido2.addEventListener('mouseover', () => { apellido2.style.boxShadow = '0 0 10px blue';});
 apellido2.addEventListener('mouseout', () => {apellido2.style.boxShadow = ''; });
 
-//segundo fieldset
+//eventos al los campos del segundo fieldset
 
 nie.addEventListener('mouseover', () => { nie.style.boxShadow = '0 0 10px blue';});
 nie.addEventListener('mouseout', () => { nie.style.boxShadow = ''; });
@@ -40,7 +40,7 @@ telf.addEventListener('mouseout', () => {telf.style.boxShadow = ''; });
 email.addEventListener('mouseover', () => { email.style.boxShadow = '0 0 10px blue';});
 email.addEventListener('mouseout', () => {email.style.boxShadow = ''; });
 
-//funcion para mostrar los datos en el campo out
+
 
 
 //agreagar evento al salir del campo nie
@@ -57,17 +57,32 @@ email.addEventListener('blur', mostrarDatos);
 //calcular la letra del dni ejm 12345678Z
 nie.addEventListener('blur', calcularLetraDNI);
 let auxOut = nie.value; // Variable para almacenar el resultado de la letra del DNI
+
+//evento para validar el campo NIE para que solo se introduzcan números y la longitud sea de 8 dígitos y positivos
+nie.addEventListener('input', function() {
+    if (nie.value.length > 8 || nie.value < 0) {
+        nie.value = nie.value.slice(0, 8);
+        if (nie.value < 0 ) {
+            nie.value = '';
+            auxOut = 'DNI no válido';
+        }
+    }
+});
 function calcularLetraDNI() {
-     const dni  = document.querySelector('#nif-nie').value;
-    if ( dni <= 99999999) {
+    const dni  = document.querySelector('#nif-nie').value;
+    const dniNumerico = String(dni); // Convertir el valor del campo NIE a cadena de texto para evitar que el usuario introduzca un número de 8 dígitos
+// console.log(`El valor del campo NIE es: ${dniNumerico}`);
+
+    if ( dniNumerico.length==8 && dni <= 99999999) {
         const letras = 'TRWAGMYFPDXBNJZSQVHLCKE';
         const letra = letras[dni % 23];
         auxOut = `${dni}${letra}`;
     } else {
+        nie.value = '';
         auxOut = 'DNI no válido';
     }
 }
-
+// funcion para mostrar los datos en el campo out
 function mostrarDatos() {
     out.value = ` ${auxOut} / ${telf.value} / ${email.value}`;
 }

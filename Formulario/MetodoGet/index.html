@@ -16,14 +16,14 @@
     </header>
 
     <main>
-         <form action="/" method="get">
+         <!-- <form action="/" method="get">
             <fieldset id="nombre-de-usuario">
                 <legend>Nombre de Usuario</legend>
-                <label for="nombre">Nombre</label>
-                <input type="text" name="nombre" id="nombre" minlength="3" maxlength="15">
+                <label for="nombre">Nombre *</label>
+                <input type="text" name="nombre" id="nombre" minlength="3" maxlength="15" required placeholder="">
 
-                <label for="apellido1">Apellido 1</label>
-                <input type="text" name="apellido1" id="apellido1" minlength="3" maxlength="15">
+                <label for="apellido1">Apellido 1 *</label>
+                <input type="text" name="apellido1" id="apellido1" minlength="3" maxlength="15" required>
 
                 <label for="apellido2">Apellido 2</label>
                 <input type="text" name="apellido2" id="apellido2" minlength="3" maxlength="15">
@@ -34,20 +34,54 @@
             </fieldset>
             <fieldset id="datos-usuario">
                 <legend>Datos de Usuario</legend>
-                <label for="nif-nie">NIF/NIE </label>
-                <input type="number" name="nif-nie" id="nif-nie"  >
+                <label for="nif-nie">NIF/NIE *</label>
+                <input type="number" name="nif-nie" id="nif-nie" required >
 
                 <label for="telefono">Telefono </label>
                 <input type="number" name="telefono" id="telefono">
 
-                <label for="correo-electronico">Email</label>
-                <input type="email" name="correo-electronico" id="correo-electronico">
+                <label for="correo-electronico">Email *</label>
+                <input type="email" name="correo-electronico" id="correo-electronico" required>
 
                 <label for="out">Contenido Introducido</label>
                 <input type="text" name="out" id="out" disabled>
             </fieldset>
             <input type="reset" value="Borrar todos los campos">
-            <input type="button" value="Enviar Formulario">
+            <input type="submit" value="Enviar Formulario">
+        </form> -->
+     <form action="" method="get">
+            <fieldset id="nombre-de-usuario">
+                <legend>Nombre de Usuario</legend>
+                <label for="nombre">Nombre *</label>
+                <input type="text" name="nombre" id="nombre" minlength="3" maxlength="15" required placeholder="Nombre del usuario">
+
+                <label for="apellido1">Apellido 1 *</label>
+                <input type="text" name="apellido1" id="apellido1" minlength="3" maxlength="15" required placeholder="Primer apellido ">
+
+                <label for="apellido2">Apellido 2</label>
+                <input type="text" name="apellido2" id="apellido2" minlength="3" maxlength="15" placeholder="Segundo apellido ">
+
+                <label for="nombre-completo">Nombre Completo</label>
+                <input type="text" name="nombre-completo" id="nombre-completo" disabled placeholder="Nombre completo del usuario ">
+
+            </fieldset>
+            <fieldset id="datos-usuario">
+                <legend>Datos de Usuario</legend>
+                <label for="nif-nie">NIF/NIE *</label>
+                <input type="number" name="nif-nie" id="nif-nie" min="1" max="99999999" required placeholder="Ingresar DNI ">
+
+                <label for="telefono">Telefono</label>
+                <input type="number" name="telefono" id="telefono" placeholder="Ingresar Telefono">
+
+                <label for="correo-electronico">Email *</label>
+                <input type="email" name="correo-electronico" id="correo-electronico" required placeholder="Correo electronico ">
+
+                <label for="out">Contenido Introducido</label>
+                <input type="text" name="out" id="out" disabled placeholder="Contenido introducido en el formulario">
+            </fieldset>
+            <input type="reset" value="Borrar todos los campos">
+              <!-- input de tipo submit para enviar el formulario con metodo get-->
+            <input type="submit" value="Enviar Formulario">
         </form>
     </main>
     
