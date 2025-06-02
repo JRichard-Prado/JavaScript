@@ -10,7 +10,21 @@ const out = document.querySelector('#out');
 
 // funcion para mostrar el nombre completo en el campor nomCompleto
 function mostrarNombreCompleto() {
-    nomCompleto.value = `${nombre.value} ${apellido1.value} ${apellido2.value}`;
+    let nombreout = '';
+    let apellido1out = '';
+    let apellido2out = '';
+    if (nombre.value.length < 3 ) {
+         nombreout = "Nombre incompleto";
+    } else nombreout = nombre.value;
+    if (apellido1.value.length < 3) {
+         apellido1out = "Apellido1 incompleto";
+         
+    }else  apellido1out = apellido1.value;
+    if (apellido2.value.length < 3) {
+        apellido2out = "Apellido2 incompleto";
+    }else  apellido2out = apellido2.value;
+
+    nomCompleto.value = `${nombreout} ${apellido1out} ${apellido2out}`;
 }
 // agregar un evento al salir del campo nombre y mostrar el nombre completo ycalcular la letra del dni
 nombre.addEventListener('blur', () => {
@@ -53,6 +67,10 @@ telf.addEventListener('blur', mostrarDatos);
 // agregar evento al salir del campo email
 email.addEventListener('blur', mostrarDatos);
 
+// funcion para mostrar los datos en el campo out
+function mostrarDatos() {
+       out.value = `${auxOut} / ${telf.value} / ${email.value}`;
+}
 
 //calcular la letra del dni ejm 02345678T
 nie.addEventListener('blur', calcularLetraDNI);
@@ -83,10 +101,7 @@ function calcularLetraDNI() {
         auxOut = 'DNI no válido';
     }
 }
-// funcion para mostrar los datos en el campo out
-function mostrarDatos() {
-    out.value = `${auxOut} / ${telf.value} / ${email.value}`;
-}
+
 
 //evento al pasar por encima de los botones
 const btns = document.querySelectorAll('form>input[type="submit"],input[type="reset"]');

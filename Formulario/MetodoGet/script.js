@@ -10,7 +10,22 @@ const out = document.querySelector('#out');
 
 // funcion para mostrar el nombre completo en el campor nomCompleto
 function mostrarNombreCompleto() {
-    nomCompleto.value = `${nombre.value} ${apellido1.value} ${apellido2.value}`;
+    let nombreout = '';
+    let apellido1out = '';
+    let apellido2out = '';
+    if (nombre.value.length < 3 ) {
+         nombreout = "Nombre incompleto";
+    } else nombreout = nombre.value;
+    if (apellido1.value.length < 3) {
+         apellido1out = "Apellido1 incompleto";
+         
+    }else  apellido1out = apellido1.value;
+    if (apellido2.value.length < 3) {
+        apellido2out = "Apellido2 incompleto";
+    }else  apellido2out = apellido2.value;
+
+    // nomCompleto.value = `${nombreout} ${apellido1out} ${apellido2out}`;/**validando el campo de salida para length min 3 char */
+    nomCompleto.value = `${nombre.value} ${apellido1.value} ${apellido2.value}`;/**sin validar el tamaño min de 3 char */
 }
 // agregar un evento al salir del campo nombre y mostrar el nombre completo ycalcular la letra del dni
 nombre.addEventListener('blur', () => {
